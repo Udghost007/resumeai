@@ -1,7 +1,11 @@
 import { FaArrowRight, FaCheck, FaFilePdf } from "react-icons/fa";
 import { FiFileText } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../../../hooks/useRedux";
 
 const Hero = () => {
+  const token = useAppSelector((state) => state.auth.token) || localStorage.getItem("token");
+
   return (
     <section className="bg-[#F8F9FF] min-h-[85vh] flex items-center">
       <div className="container mx-auto px-6 lg:px-12 py-16">
@@ -24,15 +28,13 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 mt-10">
-              <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-2 transition-all">
+              <Link
+                to={token ? "/templates" : "/register"}
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-2 transition-all shadow-md hover:shadow-lg"
+              >
                 Create Resume Now
                 <FaArrowRight />
-              </button>
-
-              {/* <button className="border border-slate-300 hover:border-indigo-600 px-8 py-4 rounded-xl font-semibold flex items-center gap-2 transition-all">
-                View Templates
-                <FiFileText />
-              </button> */}
+              </Link>
             </div>
 
             <div className="flex items-center gap-4 mt-10">

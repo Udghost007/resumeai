@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
+import { useAppSelector } from "../../../hooks/useRedux";
 
 const CTA = () => {
+  const token = useAppSelector((state) => state.auth.token) || localStorage.getItem("token");
+
   return (
     <section className="py-24 bg-gradient-to-r from-indigo-600 to-violet-600">
       <div className="container mx-auto px-6 lg:px-10">
@@ -27,7 +30,7 @@ const CTA = () => {
 
               <div className="flex flex-wrap gap-4 mt-8">
                 <Link
-                  to="/register"
+                  to={token ? "/templates" : "/register"}
                   className="bg-white text-indigo-600 px-8 py-4 rounded-xl font-semibold flex items-center gap-2 hover:bg-slate-100 transition"
                 >
                   Get Started Free

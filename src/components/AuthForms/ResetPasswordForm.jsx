@@ -33,7 +33,7 @@ const ResetPasswordForm = () => {
         localStorage.setItem("token", response.token);
       }
 
-      navigate("/dashboard");
+      navigate("/resumes");
     } catch (err) {
       setError(err.response?.data?.message || "Unable to reset password");
     } finally {

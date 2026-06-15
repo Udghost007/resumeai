@@ -28,7 +28,7 @@ const LoginForm = () => {
     const result = await dispatch(loginUser(values));
 
     if (loginUser.fulfilled.match(result)) {
-      navigate("/templates");
+      navigate("/resumes");
     }
   };
 
