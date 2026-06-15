@@ -29,10 +29,10 @@ const Hero = () => {
                 <FaArrowRight />
               </button>
 
-              <button className="border border-slate-300 hover:border-indigo-600 px-8 py-4 rounded-xl font-semibold flex items-center gap-2 transition-all">
+              {/* <button className="border border-slate-300 hover:border-indigo-600 px-8 py-4 rounded-xl font-semibold flex items-center gap-2 transition-all">
                 View Templates
                 <FiFileText />
-              </button>
+              </button> */}
             </div>
 
             <div className="flex items-center gap-4 mt-10">

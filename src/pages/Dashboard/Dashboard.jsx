@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import DashboardHeader from "../../components/dashboard/DashboardHeader";
+import Sidebar from "../../components/dashboard/Sidebar";
 
 const resumes = [
   {
@@ -33,15 +34,15 @@ const resumes = [
 const Dashboard = () => {
   return (
     <div className="flex bg-slate-100 min-h-screen">
-      {/* <Sidebar /> */}
+      <Sidebar />
 
-      <div className="flex-1">
+      <div className="flex-1 overflow-x-hidden">
         <DashboardHeader
           title="Welcome Back"
           subtitle="Manage your resumes and profile"
         />
 
-        <main className="p-8">
+        <main className="p-4 md:p-8">
           <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
             <StatCard icon={<FaFileAlt />} title="Total Resumes" value="12" />
             <StatCard icon={<FaDownload />} title="Downloads" value="35" />

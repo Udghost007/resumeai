@@ -141,10 +141,10 @@ const CreateResume = () => {
 
         <div className="flex-1 flex overflow-hidden">
           {/* Left Panel: Form Wizard */}
-          <div className="w-full lg:w-1/2 p-6 md:p-8 overflow-y-auto border-r border-slate-200 bg-slate-50 flex flex-col justify-start">
+          <div className="w-full lg:w-1/2 p-4 md:p-8 overflow-y-auto border-r border-slate-200 bg-slate-50 flex flex-col justify-start">
             <ResumeStepper currentStep={currentStep} />
 
-            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 flex-1 flex flex-col justify-between">
+            <div className="bg-white p-4 md:p-8 rounded-2xl shadow-sm border border-slate-100 flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-center mb-6 border-b pb-4">
                   <h2 className="text-xl md:text-2xl font-bold text-slate-800">

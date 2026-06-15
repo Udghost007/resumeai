@@ -34,12 +34,12 @@ const CTA = () => {
                   <FaArrowRight />
                 </Link>
 
-                <Link
+                {/* <Link
                   to="/templates"
                   className="border border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-indigo-600 transition"
                 >
                   View Templates
-                </Link>
+                </Link> */}
               </div>
             </div>
 

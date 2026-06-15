@@ -34,13 +34,13 @@ const ResumePreview = () => {
     <div className="flex bg-slate-100 min-h-screen">
       <Sidebar />
 
-      <div className="flex-1">
+      <div className="flex-1 overflow-x-hidden">
         <DashboardHeader
           title="Resume Preview"
           subtitle="Preview before downloading"
         />
 
-        <div className="p-8 max-w-4xl mx-auto">
+        <div className="p-4 md:p-8 max-w-4xl mx-auto">
           <div
             id="resume-preview"
             className="bg-white rounded-2xl shadow-sm overflow-hidden"
