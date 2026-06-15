@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "https://backend-jzsb.onrender.com",
+  baseURL: "https://resumeai-backend-mcvg.onrender.com",
   headers: {
     "Content-Type": "application/json",
   },
