@@ -12,6 +12,9 @@ const uiSlice = createSlice({
     toggleSidebar: (state) => {
       state.sidebarOpen = !state.sidebarOpen;
     },
+    closeSidebar: (state) => {
+      state.sidebarOpen = false;
+    },
     setToast: (state, action) => {
       state.toast = action.payload;
     },
@@ -21,5 +24,5 @@ const uiSlice = createSlice({
   },
 });
 
-export const { toggleSidebar, setToast, clearToast } = uiSlice.actions;
+export const { toggleSidebar, closeSidebar, setToast, clearToast } = uiSlice.actions;
 export default uiSlice.reducer;

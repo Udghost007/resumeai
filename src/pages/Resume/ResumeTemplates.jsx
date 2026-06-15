@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/useRedux";
 import { clearSelectedResume } from "./Slice/resumeSlice";
 import Sidebar from "../../components/dashboard/Sidebar";
+import { HiMenu } from "react-icons/hi";
+import { toggleSidebar } from "../../store/uiSlice";
 
 const ResumeTemplates = () => {
   const [selectedTemplate, setSelectedTemplate] = useState("modern");
@@ -47,17 +49,30 @@ const ResumeTemplates = () => {
     <div className="flex bg-slate-100 min-h-screen">
       <Sidebar />
 
-      <div className="min-h-screen bg-[#f3f4f8] p-8">
-        {/* Header */}
-        <div className="max-w-7xl mx-auto mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Select a Resume Template
-          </h1>
-          <p className="mt-4 text-lg text-slate-600">
-            Pick a starter design. You can change templates anytime while
-            editing.
-          </p>
+      <div className="flex-1 overflow-x-hidden min-h-screen bg-[#f3f4f8]">
+        {/* Mobile Header Bar */}
+        <div className="lg:hidden p-4 bg-white border-b flex items-center justify-between">
+          <button
+            onClick={() => dispatch(toggleSidebar())}
+            className="p-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition"
+          >
+            <HiMenu size={24} />
+          </button>
+          <span className="font-bold text-slate-800">ResumeGen AI</span>
+          <div className="w-10 h-10" /> {/* Spacer */}
         </div>
+
+        <div className="p-4 md:p-8">
+          {/* Header */}
+          <div className="max-w-7xl mx-auto mb-8 md:mb-12 text-center mt-4 lg:mt-0">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Select a Resume Template
+            </h1>
+            <p className="mt-2 md:mt-4 text-base md:text-lg text-slate-600">
+              Pick a starter design. You can change templates anytime while
+              editing.
+            </p>
+          </div>
 
         {/* Templates Grid */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -127,7 +142,8 @@ const ResumeTemplates = () => {
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default ResumeTemplates;

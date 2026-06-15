@@ -12,13 +12,13 @@ const Notifications = () => {
     <div className="flex bg-slate-100 min-h-screen">
       <Sidebar />
 
-      <div className="flex-1">
+      <div className="flex-1 overflow-x-hidden">
         <DashboardHeader
           title="Notifications"
           subtitle="Stay updated with your activities"
         />
 
-        <div className="p-8 space-y-6">
+        <div className="p-4 md:p-8 space-y-6">
           <NotificationFilter
             activeFilter={activeFilter}
             onFilterChange={setActiveFilter}

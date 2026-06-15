@@ -27,10 +27,10 @@ const ResumeList = () => {
     <div className="flex bg-slate-100 min-h-screen">
       <Sidebar />
 
-      <div className="flex-1">
+      <div className="flex-1 overflow-x-hidden">
         <DashboardHeader title="My Resumes" subtitle="Manage your resumes" />
 
-        <div className="p-8">
+        <div className="p-4 md:p-8">
           <ResumeFilters
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}

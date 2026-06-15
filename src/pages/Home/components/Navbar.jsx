@@ -6,7 +6,6 @@ import { FaFileAlt } from "react-icons/fa";
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "Features", path: "/features" },
-  { label: "Templates", path: "/templates" },
   { label: "How It Works", path: "/how-it-works" },
   { label: "Pricing", path: "/pricing" },
   { label: "About Us", path: "/about" },
@@ -70,8 +69,12 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-slate-800"
-            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            aria-label={
+              isOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            className="lg:hidden text-slate-800 transition hover:text-indigo-600"
+            onClick={() => setIsOpen((prev) => !prev)}
           >
             {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
           </button>
@@ -80,31 +83,39 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white">
-          <div className="px-6 py-5 flex flex-col gap-4">
+        <div className="lg:hidden border-t border-slate-200 bg-white shadow-md">
+          <div className="px-6 py-5 flex flex-col gap-3">
             {navLinks.map((item) => (
               <NavLink
                 key={item.label}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className="font-medium text-slate-700 hover:text-indigo-600"
+                className={({ isActive }) =>
+                  `rounded-xl px-4 py-3 font-medium transition ${
+                    isActive
+                      ? "bg-indigo-50 text-indigo-600"
+                      : "text-slate-700 hover:text-indigo-600 hover:bg-slate-50"
+                  }`
+                }
               >
                 {item.label}
               </NavLink>
             ))}
 
-            <hr className="my-2" />
+            <hr className="my-2 border-slate-200" />
 
             <Link
               to="/login"
-              className="border border-slate-300 rounded-xl py-3 text-center font-medium"
+              onClick={() => setIsOpen(false)}
+              className="border border-slate-300 rounded-xl py-3 text-center font-medium text-slate-700 hover:bg-slate-100 transition"
             >
               Log In
             </Link>
 
             <Link
               to="/register"
-              className="bg-indigo-600 text-white rounded-xl py-3 text-center font-medium"
+              onClick={() => setIsOpen(false)}
+              className="bg-indigo-600 text-white rounded-xl py-3 text-center font-medium hover:bg-indigo-700 transition"
             >
               Get Started
             </Link>

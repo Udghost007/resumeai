@@ -8,10 +8,10 @@ const Profile = () => {
     <div className="min-h-screen bg-slate-100 flex">
       <Sidebar />
 
-      <div className="flex-1">
+      <div className="flex-1 overflow-x-hidden">
         <DashboardHeader />
 
-        <div className="p-8 grid lg:grid-cols-3 gap-6">
+        <div className="p-4 md:p-8 grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <ProfileForm />
           </div>
