@@ -19,11 +19,11 @@ const Sidebar = () => {
   const sidebarOpen = useAppSelector((state) => state.ui.sidebarOpen);
 
   const menuItems = [
-    {
-      title: "Dashboard",
-      path: "/dashboard",
-      icon: <FaHome />,
-    },
+    // {
+    //   title: "Dashboard",
+    //   path: "/dashboard",
+    //   icon: <FaHome />,
+    // },
     {
       title: "My Resumes",
       path: "/resumes",
@@ -39,11 +39,7 @@ const Sidebar = () => {
       path: "/profile",
       icon: <FaUser />,
     },
-    {
-      title: "AI Generator",
-      path: "/ai-generator",
-      icon: <FaRobot />,
-    },
+
     {
       title: "Settings",
       path: "/settings",
@@ -114,7 +110,10 @@ const Sidebar = () => {
           <div className="bg-slate-50 rounded-xl p-3">
             <div className="flex items-center gap-3">
               <img
-                src={user?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.name || "User")}&background=6366f1&color=fff`}
+                src={
+                  user?.avatar ||
+                  `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.name || "User")}&background=6366f1&color=fff`
+                }
                 alt="user"
                 className="w-12 h-12 rounded-full object-cover"
               />
