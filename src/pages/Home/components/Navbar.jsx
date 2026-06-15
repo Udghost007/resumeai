@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { FaFileAlt } from "react-icons/fa";
+import { useAppSelector } from "../../../hooks/useRedux";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -14,6 +15,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const token = useAppSelector((state) => state.auth.token) || localStorage.getItem("token");
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
@@ -52,19 +54,30 @@ const Navbar = () => {
 
           {/* Desktop Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <Link
-              to="/login"
-              className="px-5 py-2.5 rounded-xl border border-slate-300 font-medium text-slate-700 hover:bg-slate-100 transition"
-            >
-              Log In
-            </Link>
+            {token ? (
+              <Link
+                to="/resumes"
+                className="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition shadow-md"
+              >
+                My Resumes
+              </Link>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="px-5 py-2.5 rounded-xl border border-slate-300 font-medium text-slate-700 hover:bg-slate-100 transition"
+                >
+                  Log In
+                </Link>
 
-            <Link
-              to="/register"
-              className="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition shadow-md"
-            >
-              Get Started
-            </Link>
+                <Link
+                  to="/register"
+                  className="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition shadow-md"
+                >
+                  Get Started
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -104,21 +117,33 @@ const Navbar = () => {
 
             <hr className="my-2 border-slate-200" />
 
-            <Link
-              to="/login"
-              onClick={() => setIsOpen(false)}
-              className="border border-slate-300 rounded-xl py-3 text-center font-medium text-slate-700 hover:bg-slate-100 transition"
-            >
-              Log In
-            </Link>
+            {token ? (
+              <Link
+                to="/resumes"
+                onClick={() => setIsOpen(false)}
+                className="bg-indigo-600 text-white rounded-xl py-3 text-center font-medium hover:bg-indigo-700 transition"
+              >
+                My Resumes
+              </Link>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="border border-slate-300 rounded-xl py-3 text-center font-medium text-slate-700 hover:bg-slate-100 transition"
+                >
+                  Log In
+                </Link>
 
-            <Link
-              to="/register"
-              onClick={() => setIsOpen(false)}
-              className="bg-indigo-600 text-white rounded-xl py-3 text-center font-medium hover:bg-indigo-700 transition"
-            >
-              Get Started
-            </Link>
+                <Link
+                  to="/register"
+                  onClick={() => setIsOpen(false)}
+                  className="bg-indigo-600 text-white rounded-xl py-3 text-center font-medium hover:bg-indigo-700 transition"
+                >
+                  Get Started
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}

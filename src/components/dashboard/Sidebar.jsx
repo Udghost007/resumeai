@@ -19,11 +19,6 @@ const Sidebar = () => {
   const sidebarOpen = useAppSelector((state) => state.ui.sidebarOpen);
 
   const menuItems = [
-    // {
-    //   title: "Dashboard",
-    //   path: "/dashboard",
-    //   icon: <FaHome />,
-    // },
     {
       title: "My Resumes",
       path: "/resumes",
