@@ -1,0 +1,31 @@
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor files
+.vscode/
+.DS_Store
+
+# Generated files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Vite cache
+.cache/
+
+# dependencies
+node_modules
