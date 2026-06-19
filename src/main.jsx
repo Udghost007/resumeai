@@ -20,4 +20,4 @@ createRoot(rootElement).render(
       </PersistGate>
     </Provider>
   </StrictMode>,
-); 
+);
